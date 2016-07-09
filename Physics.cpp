@@ -1,5 +1,6 @@
 #pragma once
 #include "Physics.h"
+#include <math.h>
 #include <random>
 #include <cassert>
 
@@ -47,7 +48,7 @@ radius(Molecule_Radius), molecule_mass(Molecule_Mass)
 void CMolecularGas::SetStartPosition(size_t NumberOfMolecules, float avg_sq_speed)
 {
 	float sign;
-	srand(NULL);
+	srand(0);
 	range_of_speed.x = -avg_sq_speed;
 	range_of_speed.y = avg_sq_speed;
 
@@ -188,9 +189,9 @@ bool CMolecularGas::pair_collision(size_t first, size_t second, float dt)
 
 	if( Vaals_Atraction && dist < 2 * Sphere_Of_Influence_Radius ) {
 		if( dist < 2 * radius ) {
-			molecules[first].acc += center_line*(K*Q2) / pow(2 * radius, 2);
+			molecules[first].acc += center_line*(K*Q2) / (float)pow(2 * radius, 2);
 		} else {
-			molecules[first].acc += center_line*(K*Q2) / pow(dist, 2);
+			molecules[first].acc += center_line*(K*Q2) / (float)pow(dist, 2);
 		}
 	}
 

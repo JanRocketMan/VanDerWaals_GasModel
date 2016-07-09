@@ -1,14 +1,17 @@
 #pragma once
-#include <SFML\Graphics\RenderWindow.hpp>
-#include <SFML\Graphics\VertexArray.hpp>
-#include <SFML\Graphics\CircleShape.hpp>
-#include <SFML\Graphics\Text.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/Graphics/Text.hpp>
 #include "Physics.h"
 
 class CDrawer {
 public:
 
-	CDrawer(sf::Vector2u const window_size, size_t pixel_depth = 32) { MainWindow.create(sf::VideoMode(window_size.x, window_size.y, pixel_depth), "Ideal Gas."); }
+	CDrawer(sf::Vector2u const window_size, size_t pixel_depth = 32):
+		medium_pressure(0), medium_energy(0) { 
+		MainWindow.create(sf::VideoMode(window_size.x, window_size.y, pixel_depth), "Ideal Gas."); 
+	}
 	~CDrawer() { MainWindow.close(); }
 
 	void Set(const CMolecularGas& StartCondition);
@@ -31,7 +34,8 @@ private:
 	std::vector<size_t> counters;
 
 	float avg_Kin_energy;
-	float medium_pressure = 0, medium_energy = 0;
+	float medium_pressure;
+	float medium_energy;
 	sf::Font font;
 	bool CounterMode;
 };

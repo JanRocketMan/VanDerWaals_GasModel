@@ -1,7 +1,8 @@
 #pragma once
+#include "math.h"
 #include "Graphics.h"
-#include <SFML\Window\Event.hpp>
-#include <SFML\Graphics\PrimitiveType.hpp>
+#include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/PrimitiveType.hpp>
 
 void CDrawer::Set(const CMolecularGas& StartCondition)
 {
