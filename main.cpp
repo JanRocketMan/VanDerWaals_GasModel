@@ -1,6 +1,6 @@
 #include "Physics.h"
 #include "Graphics.h"
-#include "Graph.h"
+// #include "Graph.h"
 
 int main(int argc, char* args[])
 {
@@ -14,7 +14,7 @@ int main(int argc, char* args[])
 
 	CMolecularGas Gas(x_axis_range, y_axis_range);
 	CDrawer Drawer(window_size);
-	CGraph Graph;
+	// CGraph Graph;
 
 	Gas.SetStartPosition(NumberOfMolecules);
 	Drawer.Set(Gas);
@@ -23,8 +23,8 @@ int main(int argc, char* args[])
 	size_t counter = 0;
 
 	if( GraphIsActive ) {
-		Graph.Create(graph_window_size);
-		Graph.Set();
+		// Graph.Create(graph_window_size);
+		// Graph.Set();
 	}
 
 	while( Elapsed_Time.asSeconds() <= MaxTime ) {
@@ -43,10 +43,10 @@ int main(int argc, char* args[])
 		if( Drawer.DrawCurrent(Gas) == false ) break;
 
 		if( GraphIsActive && Drawer.ShowCounterMode() == false ) {
-			Graph.ShowCondition(Drawer.ShowMediumEnergy(), Drawer.ShowMediumPressure());
+			// Graph.ShowCondition(Drawer.ShowMediumEnergy(), Drawer.ShowMediumPressure());
 		}
 
-		Graph.UpdateShow();
+		// Graph.UpdateShow();
 		Elapsed_Time += clock.restart();
 	}
 

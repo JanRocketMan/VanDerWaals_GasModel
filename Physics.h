@@ -1,6 +1,6 @@
 #pragma once
 #include <vector>
-#include <SFML\System\Vector2.hpp>
+#include <SFML/System/Vector2.hpp>
 #include "Constants.h"
 
 sf::Vector2f const VNULL(0.f, 0.f);
